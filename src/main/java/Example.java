@@ -9,7 +9,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
  */
 public class Example {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new HtmlUnitDriver();
         driver.get("http://www.google.com");
         WebElement element = driver.findElement(By.name("q"));
@@ -23,6 +23,13 @@ public class Example {
         element.sendKeys("vk");
         element.submit();
         System.out.println("suggests = " + driver.getTitle());
+        Thread.sleep(1000);
+        driver.get("http://go.mail.ru/");
+
+        element = driver.findElement(By.id("q"));
+        element.sendKeys("vk");
+        element.submit();
+        System.out.println("go.mail.ru");
 
     }
 }
